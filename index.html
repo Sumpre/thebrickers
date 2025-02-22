@@ -3,236 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TheBrickersITA</title>
+    <title>Sito Pessimo</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-        }
-
         body {
-            font-family: 'Arial', sans-serif;
-            background-image: url('lego.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            min-height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif; /* Font di sistema predefinito, senza stile */
             overflow-x: hidden;
-            color: #fff;
-            background-blend-mode: overlay;
-            margin: 0; /* Assicura che non ci siano margini indesiderati */
+            background-color: #f0f0f0; /* Sfondo grigio spento e impersonale */
+            color: #777; /* Testo grigio chiaro, difficile da leggere */
+            -webkit-text-size-adjust: 100%;
+            display: block; /* Layout a blocchi predefinito, senza flessibilità */
+            line-height: 1.2; /* Interlinea stretta e soffocante */
         }
 
-        /* Hotbar */
+        /* Hotbar - Inesistente */
         .hotbar {
             position: fixed;
-            top: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 1000px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(12px);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 20px;
-            z-index: 1000;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        .title {
-            font-size: 24px;
-            font-weight: 700;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-        }
-        .menu-icon {
-            display: flex;
-            gap: 6px;
-            cursor: pointer;
-            -webkit-tap-highlight-color: transparent;
-        }
-        .menu-icon div {
-            width: 8px;
-            height: 8px;
-            background-color: #fff;
-            border-radius: 50%;
-            transition: transform 0.3s ease;
-        }
-        .menu-icon:hover div {
-            transform: scale(1.2);
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 20px; /* Hotbar ridicolmente sottile */
+            background: transparent; /* Sfondo trasparente, si fonde con il body */
+            backdrop-filter: none; /* Nessun effetto backdrop */
+            display: block; /* Display a blocchi, senza allineamento */
+            padding: 0; /* Nessun padding */
+            z-index: 1; /* Z-index basso, quasi dietro al contenuto */
+            border-bottom: none; /* Nessun bordo */
+            opacity: 0.1; /* Hotbar quasi invisibile */
         }
 
-        /* Side Menu */
+        .title {
+            font-size: 0.6rem; /* Titolo microscopico */
+            font-weight: bold; /* Peso del font paradossalmente grassetto, ma minuscolo */
+            color: #999; /* Titolo grigio chiarissimo, quasi invisibile */
+            letter-spacing: -0.1em; /* Spaziatura negativa, testo compresso */
+            text-transform: lowercase; /* Titolo in minuscolo, insignificante */
+            position: absolute; /* Posizionamento assoluto, fuori flusso */
+            top: -999px; /* Spostato fuori dalla vista */
+            left: -999px;
+            overflow: hidden; /* Nascosto completamente */
+            width: 1px; /* Larghezza e altezza minime */
+            height: 1px;
+        }
+
+        /* Menu Icon - Assente */
+        .menu-icon {
+            display: none; /* Icona menu completamente nascosta */
+        }
+
+
+        /* Side Menu - Inutile e nascosto */
         .side-menu {
             position: fixed;
-            top: 85px;
-            right: -220px;
-            width: 220px;
-            height: 70px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(12px);
-            border-radius: 20px 0 0 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-right: none;
-            z-index: 999;
-            padding: 0 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            will-change: transform;
-            transform: translateX(0);
-            transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+            top: 0; /* Allineato al top, sovrapposto */
+            left: 0; /* Allineato a sinistra, fuori schermo */
+            width: 1px; /* Larghezza side menu minima */
+            height: 1px; /* Altezza side menu minima */
+            background: transparent; /* Sfondo trasparente */
+            backdrop-filter: none; /* Nessun effetto backdrop */
+            box-shadow: none; /* Nessuna ombra */
+            z-index: 0; /* Z-index minimo, dietro a tutto */
+            padding: 0; /* Nessun padding */
+            box-sizing: border-box;
+            transition: none; /* Nessuna transizione */
+            overflow-y: hidden; /* Scroll nascosto */
+            border-radius: 0; /* Bordi squadrati */
+            border: none; /* Nessun bordo */
+            opacity: 0; /* Side menu invisibile */
+            pointer-events: none; /* Non interattivo */
         }
+
         .side-menu.open {
-            transform: translateX(-220px);
+            display: none !important; /* Non dovrebbe mai aprirsi */
         }
 
-        /* Floating Boxes */
+        .side-menu h2, .side-menu ul, .side-menu .icons {
+            display: none; /* Contenuto side menu nascosto */
+        }
+
+
+        /* Rettangoli Fluttuanti - Monotoni e piatti */
         .floating-box, .second-floating-box {
-            position: relative;
-            margin: 100px auto 30px;
-            width: 85%;
-            max-width: 700px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(15px);
-            border-radius: 20px;
-            padding: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: transform 0.3s ease-in-out;
-            will-change: transform;
-            transform: translateZ(0);
+            width: 100%; /* Rettangoli a piena larghezza, senza margini */
+            max-width: none; /* Nessuna larghezza massima */
+            background-color: #e8e8e8; /* Sfondo rettangoli grigio chiaro e opaco */
+            backdrop-filter: none; /* Nessun effetto backdrop */
+            border-radius: 0px; /* Bordi rettangoli squadrati */
+            padding: 15px; /* Padding rettangoli minimo */
+            margin-bottom: 0px; /* Nessun margine inferiore */
+            box-shadow: none; /* Nessuna ombra */
+            text-align: justify; /* Testo giustificato, poco leggibile */
+            border: none; /* Nessun bordo */
+            float: left; /* Elementi flottanti, layout rotto */
+            clear: both; /* Forza elementi sottostanti a spostarsi sotto, layout ancora più rotto */
+            overflow: hidden; /* Nasconde overflow, potenziali problemi di layout */
+            opacity: 0.95; /* Opacità alta, aspetto pesante */
         }
-        .floating-box:hover, .second-floating-box:hover {
-            transform: translateY(-5px);
-        }
+
         .floating-box h1, .second-floating-box h2 {
-            font-weight: 700;
-            margin-bottom: 15px;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            font-size: 1rem; /* Titoli rettangoli piccoli e insignificanti */
+            font-weight: normal; /* Peso del font normale */
+            margin-bottom: 5px; /* Margine inferiore titoli rettangoli minimo */
+            color: #666; /* Colore titoli rettangoli grigio medio */
+            letter-spacing: 0; /* Nessuna spaziatura titoli */
+            text-transform: none; /* Nessuna trasformazione titoli */
+            text-align: center; /* Titoli centrati, incongruenti con il testo giustificato */
+            font-style: italic; /* Titoli in corsivo, stile obsoleto */
         }
-        .floating-box h1 {
-            font-size: 26px;
-        }
-        .second-floating-box h2 {
-            font-size: 22px;
-        }
+
         .floating-box p, .second-floating-box p {
-            font-size: 16px;
-            line-height: 1.5;
+            line-height: 1.3; /* Interlinea paragrafi rettangoli stretta */
+            color: #888; /* Colore paragrafi rettangoli grigio chiaro */
+            font-size: 0.8rem; /* Dimensione font paragrafi rettangoli microscopica */
+            letter-spacing: 0; /* Nessuna spaziatura paragrafi */
+            word-spacing: -0.2em; /* Spaziatura negativa tra parole, testo illeggibile */
+            white-space: pre-line; /* Gestione spazi bianchi pre-line, testo potenzialmente rotto */
+            text-indent: 2em; /* Rientro prima riga, stile antiquato */
         }
 
-        /* Icons */
+        /* Icone - Inutili e dannose */
         .icons {
-            display: flex;
-            justify-content: center;
-            gap: 35px;
-        }
-        .icons a {
-            display: inline-block;
-            transition: transform 0.3s ease;
-            -webkit-tap-highlight-color: transparent;
-        }
-        .icons a:hover {
-            transform: scale(1.15);
-        }
-        .youtube-icon img, .whatsapp-icon img {
-            width: 40px;
-            height: 40px;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+            display: none; /* Icone completamente rimosse */
         }
 
-        /* Responsività */
-        @media (max-width: 768px) {
+        /* Footer - Fastidioso e invadente */
+        footer {
+            text-align: left; /* Footer allineato a sinistra, incongruente */
+            padding: 5px; /* Padding footer ultra-ridotto */
+            font-size: 0.6rem; /* Dimensione font footer ultra-microscopica */
+            color: #aaa; /* Colore footer quasi invisibile */
+            border-top: 1px solid #eee; /* Bordo footer sottile e chiaro */
+            margin-top: 0; /* Nessun margine superiore, attaccato al contenuto */
+            width: 100%;
+            opacity: 1; /* Opacità footer piena, invadente */
+            position: fixed; /* Footer fisso, sovrapposto al contenuto */
+            bottom: 0; /* Footer incollato in basso */
+            left: 0;
+            background-color: #f0f0f0; /* Sfondo footer uguale al body, indistinguibile */
+            z-index: 9999; /* Z-index altissimo, sempre in primo piano */
+            pointer-events: auto; /* Footer interattivo, blocca interazione con il contenuto */
+            cursor: url('data:image/png;base64,...'), auto; /* Cursore personalizzato e fastidioso (base64 placeholder) */
+        }
+
+        footer:hover {
+            opacity: 0.8; /* Opacità footer hover leggermente ridotta, ma ancora invadente */
+            background-color: #e0e0e0; /* Sfondo footer hover leggermente più scuro */
+            color: #bbb; /* Colore footer hover ancora più chiaro */
+            text-decoration: line-through; /* Testo barrato all'hover, stile errato */
+        }
+
+
+        /* Media query per schermi piccoli - Disastro Mobile */
+        @media screen and (max-width: 768px) {
+            body {
+                font-size: 10px; /* Dimensione font body ulteriormente ridotta per mobile, illeggibile */
+                background-color: #ddd; /* Sfondo mobile ancora più spento */
+            }
             .hotbar {
-                width: 95%;
-                padding: 0 15px;
+                height: 15px; /* Hotbar mobile ultra-ultra-piccola */
+                padding: 0 5px; /* Padding hotbar mobile ulteriormente ridotto */
+                opacity: 0.05; /* Hotbar mobile quasi completamente invisibile */
             }
             .title {
-                font-size: 20px;
+                font-size: 0.5rem; /* Titolo mobile ultra-ultra-piccolo, illeggibile */
             }
             .side-menu {
-                width: 180px;
-                height: 60px;
-                right: -180px;
-                top: 80px;
+                width: 100%; /* Side menu mobile a piena larghezza, sovrapposto a tutto */
+                padding: 10px; /* Padding side menu mobile ulteriormente ridotto */
+                top: 0; /* Side menu mobile allineato al top, copre tutto */
+                left: 0; /* Side menu mobile allineato a sinistra, copre tutto */
+                height: 100%; /* Side menu mobile a piena altezza, copre tutto */
+                border-radius: 0; /* Bordi side menu mobile squadrati */
+                opacity: 0.8; /* Side menu mobile semi-opaco, difficile vedere sotto */
             }
             .side-menu.open {
-                transform: translateX(-180px);
+                opacity: 0.9; /* Side menu mobile aperto ancora più opaco */
+            }
+            .side-menu h2 {
+                font-size: 0.8rem; /* Titolo side menu mobile ultra-ridotto */
+                margin-bottom: 5px; /* Margine inferiore titolo side menu mobile ultra-ridotto */
             }
             .floating-box, .second-floating-box {
-                width: 90%;
-                padding: 20px;
+                padding: 10px; /* Padding rettangoli mobile ulteriormente ridotto */
+                border-radius: 0; /* Bordi rettangoli mobile squadrati */
+                margin-bottom: 10px; /* Margine inferiore rettangoli mobile ulteriormente ridotto */
+                float: none; /* Rimozione float per mobile, layout ancora più rotto */
+                clear: none; /* Rimozione clear per mobile */
+                opacity: 1; /* Opacità rettangoli mobile piena */
             }
-            .floating-box h1 {
-                font-size: 22px;
+            .floating-box h1, .second-floating-box h2 {
+                font-size: 1rem; /* Titoli rettangoli mobile ultra-ridotti */
+                margin-bottom: 5px; /* Margine inferiore titoli rettangoli mobile ultra-ridotto */
             }
-            .second-floating-box h2 {
-                font-size: 20px;
+            .floating-box p, .second-floating-box p {
+                font-size: 0.7rem; /* Testo paragrafi rettangoli mobile ultra-ridotto, illeggibile */
+                line-height: 1.2; /* Interlinea paragrafi rettangoli mobile ulteriormente ridotta */
+                word-spacing: -0.1em; /* Spaziatura parole mobile negativa */
+                text-indent: 1em; /* Rientro prima riga mobile */
             }
-            .icons {
-                gap: 25px;
+            footer {
+                font-size: 0.5rem; /* Dimensione footer mobile ultra-microscopica */
+                padding: 3px; /* Padding footer mobile ultra-ridotto */
+                opacity: 0.5; /* Opacità footer mobile ulteriormente ridotta */
+                position: static; /* Footer statico su mobile, layout ancora più rotto */
+                margin-top: 10px; /* Margine superiore footer mobile */
+                text-align: center; /* Footer centrato su mobile, incongruente */
+            }
+            footer:hover {
+                opacity: 0.6; /* Opacità footer hover mobile leggermente aumentata */
+                background-color: #d0d0d0; /* Sfondo footer hover mobile leggermente più scuro */
+                color: #ccc; /* Colore footer hover mobile ancora più chiaro */
+                text-decoration: none; /* Rimozione barratura hover mobile */
             }
         }
     </style>
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Arial:wght@400;500;700&display=swap" rel="stylesheet"> </head>
 <body>
     <div class="hotbar">
-        <div class="title">TheBrickersITA</div>
+        <div class="title"></div>
         <div class="menu-icon" onclick="toggleMenu()">
             <div></div>
             <div></div>
             <div></div>
         </div>
     </div>
+
     <div class="floating-box">
-        <h1>Benvenuti nel nostro sito ufficiale</h1>
-        <p>In questo sito vi terremmo aggiornati sul mondo dei mattoncini LEGO e sulle costruzioni ed eventi della nostra città LEGO. Iscriviti ai nostri canali semplicemente cliccando le scritte WhatsApp e YouTube e visita questo canale circa una volta a settimana per supportarci e restare aggiornato!</p>
-    </div>
-    <div class="second-floating-box">
-        <h2>Ma il logo LEGO è sempre stato così?</h2>
-        <p>Da anni LEGO esiste portando felicità, fantasia, ma soprattutto immaginazione. Ma il suo "logo", ovvero il suo simbolo, è sempre stato così? Anche se il suo nome è sempre stato lo stesso fin dall'inizio, LEGO ha cambiato il suo logo ben 13 volte, cambiando alcune volte piccoli particolari, altre caratteri, colori, o la forma del riquadro. Ecco qui tutti i loghi che hanno percorso la storia della fabbrica di giocattoli più amata al mondo.</p>
-    </div>
-    <div class="side-menu" id="sideMenu">
+        <h1>Benvenuti</h1>
+        <p>Questo è il nostro sito ufficiale dedicato al mondo LEGO. Scopri le ultime creazioni, eventi e novità dalla nostra città LEGO. Seguici sui nostri canali social.</p>
         <div class="icons">
-            <a href="https://youtube.com/@brickers6458" target="_blank">
-                <div class="youtube-icon">
-                    <img src="youtube.png" alt="YouTube">
-                </div>
+            <a href="https://youtube.com/@brickers6458" target="_blank" aria-label="YouTube">
+                <span class="youtube-icon">
+                    <img src="/youtube.png" alt="YouTube">
+                </span>
             </a>
-            <a href="https://whatsapp.com/channel/0029Vabjtii4yltMQCO1g433" target="_blank">
-                <div class="whatsapp-icon">
+            <a href="https://whatsapp.com/channel/0029Vabjtii4yltMQCO1g433" target="_blank" aria-label="WhatsApp">
+                <span class="whatsapp-icon">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-                </div>
+                </span>
             </a>
         </div>
     </div>
+
+    <div class="second-floating-box">
+        <h2>Logo LEGO: Evoluzione</h2>
+        <p>LEGO, simbolo di creatività e gioia, ha ispirato generazioni. Ma il logo LEGO è sempre stato lo stesso? Esplora le 13 trasformazioni del logo.</p>
+    </div>
+
+
+    <div class="side-menu" id="sideMenu">
+    </div>
+
+    <footer>
+        <p>© 2025 TheBrickersITA</p>
+    </footer>
+
     <script>
         function toggleMenu() {
             const sideMenu = document.getElementById('sideMenu');
             sideMenu.classList.toggle('open');
         }
-
-        // Chiude il menu se si clicca fuori
-        document.addEventListener('click', function(event) {
-            const sideMenu = document.getElementById('sideMenu');
-            const menuIcon = document.querySelector('.menu-icon');
-            if (!sideMenu.contains(event.target) && !menuIcon.contains(event.target) && sideMenu.classList.contains('open')) {
-                sideMenu.classList.remove('open');
-            }
-        });
     </script>
 </body>
 </html>
